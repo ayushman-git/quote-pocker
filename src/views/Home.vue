@@ -42,9 +42,23 @@
 
 
 <script>
-import { mapActions } from "vuex";
+import { mapState, mapActions } from "vuex";
 export default {
   name: "Home",
+  mounted() {
+    if (localStorage.getItem("token")) {
+      console.log(this.user?.displayName.split(" "));
+      // this.$router.push({
+      //   name: "Quotes",
+      //   params: {
+      //     username: this.user?.displayName.split(" ")[0].toLowerCase(),
+      //   },
+      // });
+    }
+  },
+  computed: {
+    ...mapState(["user"]),
+  },
   methods: {
     ...mapActions(["getUser"]),
   },
