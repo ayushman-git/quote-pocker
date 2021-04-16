@@ -6,5 +6,17 @@
   <router-view />
 </template>
 
+<script>
+import firebaseAuth from "@/auth/firebase";
+import authChange from "@/auth/authChange";
+export default {
+  name: "App",
+  mounted() {
+    firebaseAuth();
+    authChange();
+  },
+};
+</script>
+
 <style>
 </style>
