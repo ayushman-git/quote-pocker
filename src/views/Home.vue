@@ -42,12 +42,12 @@
 
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 export default {
   name: "Home",
   mounted() {
     if (localStorage.getItem("token")) {
-      console.log(this.user?.displayName.split(" "));
+      console.log(this.userInfo);
       // this.$router.push({
       //   name: "Quotes",
       //   params: {
@@ -57,7 +57,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(["user"]),
+    ...mapGetters(["userInfo"]),
   },
   methods: {
     ...mapActions(["getUser"]),
