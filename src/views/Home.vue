@@ -43,17 +43,18 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
+import { auth } from "@/auth/firebase";
+
 export default {
   name: "Home",
   mounted() {
-    if (localStorage.getItem("token")) {
-      console.log(this.userInfo);
-      // this.$router.push({
-      //   name: "Quotes",
-      //   params: {
-      //     username: this.user?.displayName.split(" ")[0].toLowerCase(),
-      //   },
-      // });
+    if (auth.currentUser) {
+      this.$router.push({
+        name: "Quotes",
+        params: {
+          username: this.userInfo?.displayName.split(" ")[0].toLowerCase(),
+        },
+      });
     }
   },
   computed: {

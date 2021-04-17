@@ -3,4 +3,10 @@ export default {
     state.user = info.user;
     state.token = info.credential.accessToken;
   },
+  deleteUser(state) {
+    state.user = {};
+  },
+  addQuote(state, quote) {
+    state.quote = quote;
+  }
 };
