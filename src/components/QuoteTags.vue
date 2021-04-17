@@ -1,5 +1,5 @@
 <template>
-  <aside class="m-2 my-8 flex justify-center">
+  <aside class="m-2 my-8 flex justify-center gap-6">
     <QuoteTag v-for="(tag, index) in tags" :key="index" :tag="tag" />
   </aside>
 </template>
@@ -16,7 +16,6 @@ export default {
     },
   },
   mounted() {
-    console.log(this.tags);
   },
 };
 </script>

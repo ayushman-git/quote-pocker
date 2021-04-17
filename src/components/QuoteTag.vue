@@ -1,5 +1,5 @@
 <template>
-  <div class="text-sm bg-green-500 w-max p-2 px-3 rounded-md text-gray-700 font-medium">
+  <div class="text-sm bg-green-500 w-max p-2 px-3 rounded-md text-gray-700 font-medium select-none">
     {{ tag }}
   </div>
 </template>
@@ -14,6 +14,3 @@ export default {
   },
 };
 </script>
-
-<style>
-</style>

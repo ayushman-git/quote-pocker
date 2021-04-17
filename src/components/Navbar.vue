@@ -1,5 +1,5 @@
 <template>
-  <div v-if="$route.meta.requiresAuth" class="bg-gray-800 text-white p-3 px-6">
+  <div v-if="$route.meta.requiresAuth" class="bg-gray-800 text-white p-3 px-6 absolute w-full">
     <div class="flex justify-between max-w-5xl mx-auto">
       <h1 class="text-2xl font-bold">Q</h1>
       <div class="flex justify-between items-center gap-8">

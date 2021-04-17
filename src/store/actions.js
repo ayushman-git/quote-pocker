@@ -1,7 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/auth";
 import router from "@/router";
-import { auth } from "@/auth/firebase";
+import { auth, db } from "@/auth/firebase";
 
 export default {
   async getUser({ commit, state }) {
@@ -20,9 +20,9 @@ export default {
     }
   },
 
-  async signOut({commit}) {
+  async signOut({ commit }) {
     try {
-      commit('deleteUser')
+      commit("deleteUser");
       await auth.signOut();
       router.push({
         name: "Home",
@@ -32,13 +32,21 @@ export default {
     }
   },
 
-  async fetchQuote({commit}) {
-    try {
-      const res = await fetch("https://api.quotable.io/random");
-      const quote = await res.json();
-      commit("addQuote", quote)
-    } catch (err) {
-      console.error(err);
-    }
+  async fetchQuote() {
+    // try {
+    //   commit("changeFetchQuoteStatus")
+    //   const res = await fetch("https://api.quotable.io/random");
+    //   const quote = await res.json();
+    //   commit("addQuote", quote)
+    //   commit("changeFetchQuoteStatus")
+    // } catch (err) {
+    //   console.error(err);
+    // }
+  },
+
+  async addQuoteToFirebase({ commit }, quote) {
+    await db.collection("quotes").add(quote, { merge: true });
+    console.log("done");
+    console.log(commit);
   },
 };

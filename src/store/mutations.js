@@ -8,5 +8,8 @@ export default {
   },
   addQuote(state, quote) {
     state.quote = quote;
-  }
+  },
+  changeFetchQuoteStatus(state) {
+    state.fetchingQuote = !state.fetchingQuote;
+  },
 };

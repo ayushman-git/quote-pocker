@@ -5,4 +5,7 @@ export default {
   quoteInfo(state) {
     return state.quote;
   },
+  quoteStatus(state) {
+    return state.fetchingQuote;
+  },
 };
