@@ -1,10 +1,15 @@
 <template>
-  <div v-if="$route.meta.requiresAuth" class="bg-gray-800 text-white p-3 px-6 absolute w-full">
+  <div
+    v-if="$route.meta.requiresAuth"
+    class="bg-gray-800 text-white p-3 px-6 absolute w-full"
+  >
     <div class="flex justify-between max-w-5xl mx-auto">
       <h1 class="text-2xl font-bold">Q</h1>
       <div class="flex justify-between items-center gap-8">
         <ul>
-          <li>Saved</li>
+          <router-link :to="{ name: 'Saved' }"
+            ><li class="p-2 px-6 cursor-pointer">Saved</li>
+          </router-link>
         </ul>
         <div
           v-if="!showSignOutBtn"

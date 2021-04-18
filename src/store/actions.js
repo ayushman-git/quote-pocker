@@ -9,7 +9,8 @@ export default {
     const provider = new firebase.auth.GithubAuthProvider();
     try {
       const data = await firebase.auth().signInWithPopup(provider);
-      commit("addUser", data);
+      commit("addUser", data.user);
+      commit("addToken", data.credential.accessToken);
       router.push({
         name: "Quotes",
         params: {
@@ -45,9 +46,21 @@ export default {
     }
   },
 
-  async addQuoteToFirebase({ dispatch }, quote) {
+  async addQuoteToFirebase({ dispatch, state }, quote) {
     dispatch("fetchQuote");
     if (await checkDuplication(quote["_id"])) return;
-    await db.collection("quotes").add(quote, { merge: true });
+    await db
+      .collection("quotes")
+      .add({ ...quote, userId: state.user.uid }, { merge: true });
+  },
+
+  async getUserQuotes({ state, commit }) {
+    const quotes = [];
+    const quotesRef = await db
+      .collection("quotes")
+      .where("userId", "==", state.user.uid)
+      .get();
+    quotesRef.docs.forEach((quote) => quotes.push(quote.data()));
+    commit("addQuotes", quotes);
   },
 };

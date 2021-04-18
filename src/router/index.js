@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import Quotes from "../views/Quotes.vue";
+import Saved from "../views/Saved.vue";
 
 import { auth } from "@/auth/firebase";
 
@@ -14,6 +15,14 @@ const routes = [
     path: "/user/:username",
     name: "Quotes",
     component: Quotes,
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    path: "/user/:username/saved",
+    name: "Saved",
+    component: Saved,
     meta: {
       requiresAuth: true,
     },

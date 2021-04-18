@@ -36,12 +36,13 @@ export default {
   },
   token: "",
   quote: {
-    _id: "KaIFTRaBv59T",
-    tags: ["famous-quotes", "wisdom"],
-    content: "Always seek out the seed of triumph in every adversity.",
-    author: "Og Mandino",
-    authorSlug: "og-mandino",
+    _id: "",
+    tags: [],
+    content: "",
+    author: "",
+    authorSlug: "",
     length: 55,
   },
   fetchingQuote: false,
+  userQuotes: []
 };
