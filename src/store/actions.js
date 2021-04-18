@@ -2,6 +2,7 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import router from "@/router";
 import { auth, db } from "@/auth/firebase";
+import checkDuplication from "@/helpers/checkDuplication";
 
 export default {
   async getUser({ commit, state }) {
@@ -32,21 +33,21 @@ export default {
     }
   },
 
-  async fetchQuote() {
-    // try {
-    //   commit("changeFetchQuoteStatus")
-    //   const res = await fetch("https://api.quotable.io/random");
-    //   const quote = await res.json();
-    //   commit("addQuote", quote)
-    //   commit("changeFetchQuoteStatus")
-    // } catch (err) {
-    //   console.error(err);
-    // }
+  async fetchQuote({ commit }) {
+    try {
+      commit("changeFetchQuoteStatus");
+      const res = await fetch("https://api.quotable.io/random");
+      const quote = await res.json();
+      commit("addQuote", quote);
+      commit("changeFetchQuoteStatus");
+    } catch (err) {
+      console.error(err);
+    }
   },
 
-  async addQuoteToFirebase({ commit }, quote) {
+  async addQuoteToFirebase({ dispatch }, quote) {
+    dispatch("fetchQuote");
+    if (await checkDuplication(quote["_id"])) return;
     await db.collection("quotes").add(quote, { merge: true });
-    console.log("done");
-    console.log(commit);
   },
 };
