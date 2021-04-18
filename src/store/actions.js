@@ -63,4 +63,17 @@ export default {
     quotesRef.docs.forEach((quote) => quotes.push(quote.data()));
     commit("addQuotes", quotes);
   },
+  async deleteQuote({ commit }, id) {
+    try {
+      commit("deleteQuote", id);
+      const quoteToDelRef = db.collection("quotes").where("_id", "==", id);
+      quoteToDelRef.get().then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+          doc.ref.delete();
+        });
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  },
 };

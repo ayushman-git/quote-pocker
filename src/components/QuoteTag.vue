@@ -1,8 +1,5 @@
 <template>
-  <div
-    @click="cliclHandler"
-    class="text-sm bg-green-500 w-max p-2 px-3 rounded-md text-gray-700 font-medium select-none"
-  >
+  <div @click="cliclHandler" :class="classHandler">
     {{ tag }}
   </div>
 </template>
@@ -13,6 +10,16 @@ export default {
   props: {
     tag: {
       type: String,
+    },
+    selectedTag: {
+      type: String,
+    },
+  },
+  computed: {
+    classHandler() {
+      console.log();
+      if (this.selectedTag === this.tag) return "tag-active";
+      return "tag";
     },
   },
   methods: {

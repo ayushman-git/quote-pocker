@@ -17,4 +17,9 @@ export default {
   changeFetchQuoteStatus(state) {
     state.fetchingQuote = !state.fetchingQuote;
   },
+  deleteQuote(state, id) {
+    const quotesSet = new Set(state.userQuotes);
+    quotesSet.delete(state.userQuotes.find((quote) => quote["_id"] === id));
+    state.userQuotes = [...quotesSet];
+  },
 };

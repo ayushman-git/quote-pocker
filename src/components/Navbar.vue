@@ -4,11 +4,19 @@
     class="bg-gray-800 text-white p-3 px-6 absolute w-full"
   >
     <div class="flex justify-between max-w-5xl mx-auto">
-      <h1 class="text-2xl font-bold">Q</h1>
+      <router-link
+        :to="{
+          name: 'Quotes',
+          params: {
+            username: userInfo.displayName.split(' ')[0].toLowerCase(),
+          },
+        }"
+        ><h1 class="text-2xl font-bold p-3">Q</h1>
+      </router-link>
       <div class="flex justify-between items-center gap-8">
         <ul>
           <router-link :to="{ name: 'Saved' }"
-            ><li class="p-2 px-6 cursor-pointer">Saved</li>
+            ><li :class="linkClassHandler">Saved</li>
           </router-link>
         </ul>
         <div
@@ -44,9 +52,14 @@ export default {
   },
   computed: {
     ...mapGetters(["userInfo"]),
+    linkClassHandler() {
+      if(this.$route.name === "Saved") return "link-active";
+      return "link";
+    },
   },
   methods: {
     ...mapActions(["signOut"]),
+
     showSignOut() {
       this.showSignOutBtn = true;
       this.interval = setTimeout(() => {
