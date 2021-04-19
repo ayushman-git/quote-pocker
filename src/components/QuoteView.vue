@@ -1,9 +1,9 @@
 <template>
-  <div class="bg-gray-600 p-4 flex justify-between items-center gap-2">
+  <div class="p-4 flex justify-between items-center gap-2">
     <div>
       {{ quote.content }}
     </div>
-    <div v-if="!showConfirm" class="cursor-pointer" @click="initialClick">
+    <div v-if="!showConfirm" class="cursor-pointer opacity-25" @click="initialClick">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         class="h-6 w-6"
@@ -20,9 +20,7 @@
       </svg>
     </div>
     <div v-else @click="deleteHandler">
-      <button
-        class="rounded-md px-2 py-1 bg-red-500 text-white font-bold"
-      >
+      <button class="rounded-md px-2 py-1 bg-red-500 text-white font-bold">
         Confirm
       </button>
     </div>

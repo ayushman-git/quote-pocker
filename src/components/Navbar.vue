@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="$route.meta.requiresAuth"
-    class="bg-gray-800 text-white p-3 px-6 absolute w-full"
+    class="bg-black text-white p-3 px-6 absolute w-full"
   >
     <div class="flex justify-between max-w-5xl mx-auto">
       <router-link

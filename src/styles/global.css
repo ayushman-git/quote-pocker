@@ -10,7 +10,7 @@ html {
   border: 0;
   box-sizing: border-box;
   min-height: 100vh;
-  background-color: rgb(55, 65, 81);
+  background-color: rgb(15, 19, 26);
   color: rgb(229, 231, 235);
 }
 
@@ -20,7 +20,7 @@ html {
   }
 
   .tag-active {
-    @apply text-sm border border-green-500 bg-green-500 w-max p-1 px-3 rounded-md text-gray-700 font-medium select-none cursor-pointer;
+    @apply text-sm border border-green-900 bg-green-900 w-max p-1 px-3 rounded-md text-green-100 font-medium select-none cursor-pointer;
   }
   .tag {
     @apply text-sm border border-gray-400 w-max p-1 px-3 rounded-md text-gray-400 font-medium select-none cursor-pointer;
