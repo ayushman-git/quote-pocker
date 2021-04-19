@@ -1,9 +1,12 @@
 <template>
-  <section class="min-h-screen grid place-items-center max-w-5xl mx-auto">
+  <section class="min-h-screen max-w-5xl mx-auto">
+    <!-- <div
+      class="grid grid-flow-row lg:grid-cols-3 lg:grid-rows-1 h-1/2 grid-cols-1 grid-rows-2 pt-36"
+    > -->
     <div
-      class="grid grid-flow-row lg:grid-cols-3 lg:grid-rows-1 h-1/2 grid-cols-1 grid-rows-2"
+      class="h-1/2 flex flex-col pt-36 lg:flex-row"
     >
-      <aside class="lg:pr-10 lg:col-span-1 row-span-1 p-4">
+      <aside class="lg:pr-10 lg:col-span-1 row-span-1 p-4 h-min lg:w-1/3">
         <header>
           <h1 class="text-2xl border-b-2 border-gray-400 text-center pb-2">
             Genres
@@ -19,8 +22,11 @@
           />
         </section>
       </aside>
-      <section
+      <!-- <section
         class="lg:border-l-2 border-gray-400 lg:pl-10 flex flex-col gap-2 lg:col-start-2 lg:col-span-2 lg:row-start-1 lg:row-span-1 row-start-2 row-span-2 p-4"
+      > -->
+      <section
+        class="lg:border-l-2 border-gray-400 lg:pl-10 flex flex-col gap-2 p-4 lg:w-2/3"
       >
         <QuoteView
           v-for="quote in selectedQuotes"
@@ -67,6 +73,3 @@ export default {
   },
 };
 </script>
-
-<style>
-</style>
