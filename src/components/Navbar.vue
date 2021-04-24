@@ -11,7 +11,7 @@
             username: userInfo.displayName.split(' ')[0].toLowerCase(),
           },
         }"
-        ><h1 class="text-2xl font-bold p-3">Q</h1>
+        ><h1 class="text-2xl font-bold p-3 text-blue-500">Q</h1>
       </router-link>
       <div class="flex justify-between items-center gap-8">
         <ul>

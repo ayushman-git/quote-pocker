@@ -1,11 +1,11 @@
 <template>
   <section class="grid place-items-center min-h-screen">
     <section>
-      <header class="flex items-center gap-3 border-b-2 mb-8 pb-2 border-black">
-        <h1 class="text-3xl md:text-4xl font-bold">Quote Pocket</h1>
+      <header class="flex items-center gap-3 border-b-2 mb-8 pb-2 border-blue-500">
+        <h1 class="text-3xl md:text-4xl font-bold pb-2">Quote Pocket</h1>
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6"
+          class="h-6 w-6 stroke-current text-blue-500"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
